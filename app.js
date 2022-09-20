@@ -1,20 +1,29 @@
 /* Imports */
 
 /* Get DOM Elements */
+// messages
+const scoreboardDisplay = document.getElementById('scoreboard');
 const resultDisplay = document.getElementById('results-display');
+//fairy card
 const fairyHP = document.getElementById('fairy-hp');
 const fairyImage = document.getElementById('fairy-image');
+
 /* State */
+let defeated = 0;
+let result = 'Click on villian to sprinkle with fairy dust...';
+
 let fairy = {
     hp: 20,
     type: 'fairy',
 };
 
-let result = 'Click on villian to sprinkle with fairy dust...';
-
 /* Events */
 
 /* Display Functions */
+function displayScoreboard() {
+    scoreboardDisplay.textContent = `You have defeated ${defeated} villians.`;
+}
+
 function displayResult() {
     resultDisplay.textContent = result;
 }
@@ -32,3 +41,4 @@ function displayFairy() {
 
 displayFairy();
 displayResult();
+displayScoreboard();
