@@ -42,12 +42,33 @@
                     <img id="fairy-image" src="assets/other/fairy.png" />
                 </section>
 
-                <section>
-                    <form action="">
-                        <label for="">
+                <section class="villian-section">
+                    <form id="add-villian-form">
+                        <label>
                             <div>New Villian</div>
+                            <div class="controls">
+                                <input name="name" required />
+                                <button>+</button>
+                            </div>
                         </label>
                     </form>
+                    <ul id="villian-list">
+                        <li class="villian card">
+                            <span class="stat">1</span>
+                            <img src="assets/villians/bat.png" alt="bat" />
+                            <span class="name">Brody</span>
+                        </li>
+                        <li class="villian card">
+                            <span class="stat">2</span>
+                            <img src="assets/villians/ghost.png" alt="ghost" />
+                            <span class="name">Gerold</span>
+                        </li>
+                        <li class="villian card">
+                            <span class="stat">3</span>
+                            <img src="assets/villians/mummy.png" alt="mummy" />
+                            <span class="name">Michelle</span>
+                        </li>
+                    </ul>
                 </section>
             </div>
         </main>
