@@ -1,0 +1,39 @@
+#scoreboard {
+    height: 50px;
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#results {
+    height: 50px;
+    background: rgb(173, 15, 173);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.fairy-card {
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 75px;
+    width: 300px;
+    padding: 15px 20px;
+}
+
+.fairy-card img {
+    width: 100%;
+}
+
+.fairy-card p {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
