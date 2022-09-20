@@ -1,6 +1,7 @@
 /* Imports */
 
 /* Get DOM Elements */
+const resultDisplay = document.getElementById('results-display');
 const fairyHP = document.getElementById('fairy-hp');
 const fairyImage = document.getElementById('fairy-image');
 /* State */
@@ -8,9 +9,16 @@ let fairy = {
     hp: 20,
     type: 'fairy',
 };
+
+let result = 'Click on villian to sprinkle with fairy dust...';
+
 /* Events */
 
 /* Display Functions */
+function displayResult() {
+    resultDisplay.textContent = result;
+}
+
 function displayFairy() {
     fairyHP.textContent = Math.max(0, fairy.hp);
     if (fairy.hp < 1) {
@@ -23,3 +31,4 @@ function displayFairy() {
 // (don't forget to call any display functions you want to run on page load!)
 
 displayFairy();
+displayResult();

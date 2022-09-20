@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
 }
-#results {
+#results-display {
     height: 50px;
     background: rgb(173, 15, 173);
     display: flex;
