@@ -1,5 +1,6 @@
 /* Imports */
 import { renderVillian } from './render-utils.js';
+import { getRandomItem } from './utils.js';
 
 /* Get DOM Elements */
 // messages
@@ -38,6 +39,9 @@ let villians = [
     },
 ];
 
+const fairyAttacks = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5];
+const villianAttacks = [0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3];
+
 /* Events */
 
 /* Display Functions */
@@ -59,17 +63,46 @@ function displayFairy() {
 }
 
 function displayVillians() {
+    villianList.innerHTML = '';
+
     for (const villian of villians) {
         const villianEl = renderVillian(villian);
         villianList.append(villianEl);
 
-        /* villianEl.addEventListener('click', () => {
+        villianEl.addEventListener('click', () => {
             if (villian.hp < 1) {
                 result = `No use throwing glitter at a dead villian`;
                 displayResult();
                 return;
             }
-        }); */
+            const fairyAttack = getRandomItem(fairyAttacks);
+            const villianAttack = getRandomItem(villianAttacks);
+
+            fairy.hp = Math.max(0, fairy.hp - villianAttack);
+            villian.hp = Math.max(0, villian.hp - fairyAttack);
+
+            result = '';
+            if (fairyAttack === 0) {
+                result += 'You missed. ';
+            } else {
+                result += `You hit ${villian.name} and did ${fairyAttack} in damage. `;
+            }
+
+            if (villianAttack === 0) {
+                result += `${villian.name} missed you.`;
+            } else {
+                result += `${villian.name} hit you and did ${villianAttack} in damage.`;
+            }
+
+            if (villian.hp < 1) {
+                defeated++;
+                displayScoreboard();
+            }
+
+            displayResult();
+            displayFairy();
+            displayVillians();
+        });
     }
 }
 
