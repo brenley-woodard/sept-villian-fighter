@@ -9,9 +9,9 @@ const resultDisplay = document.getElementById('results-display');
 //fairy card
 const fairyHP = document.getElementById('fairy-hp');
 const fairyImage = document.getElementById('fairy-image');
-//villian card
+//villian
 const villianList = document.getElementById('villian-list');
-
+const addVillianForm = document.getElementById('add-villian-form');
 /* State */
 let defeated = 0;
 let result = 'Click on a villian to hit them with glitter...';
@@ -39,10 +39,69 @@ let villians = [
     },
 ];
 
+// villian types
+const bat = {
+    type: 'bat',
+    hp: 1,
+};
+
+const ghost = {
+    type: 'ghost',
+    hp: 2,
+};
+
+const mummy = {
+    type: 'mummy',
+    hp: 3,
+};
+
+const witch = {
+    type: 'witch',
+    hp: 4,
+};
+
+const zombie = {
+    type: 'zombie',
+    hp: 5,
+};
+
 const fairyAttacks = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5];
 const villianAttacks = [0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3];
+const villianTypes = [
+    bat,
+    bat,
+    bat,
+    ghost,
+    ghost,
+    ghost,
+    mummy,
+    mummy,
+    mummy,
+    witch,
+    witch,
+    zombie,
+];
 
 /* Events */
+addVillianForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(addVillianForm);
+    const villianType = getRandomItem(villianTypes);
+
+    const villian = {
+        name: formData.get('name'),
+        type: villianType.type,
+        hp: villianType.hp,
+    };
+    villians.push(villian);
+
+    result = `${villian.name} the ${villian.type} has joined the fight`;
+
+    displayVillians();
+    displayResult();
+
+    addVillianForm.reset();
+});
 
 /* Display Functions */
 function displayScoreboard() {
