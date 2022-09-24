@@ -12,6 +12,9 @@ const fairyImage = document.getElementById('fairy-image');
 //villian
 const villianList = document.getElementById('villian-list');
 const addVillianForm = document.getElementById('add-villian-form');
+
+const removeButton = document.getElementById('remove-button');
+
 /* State */
 let defeated = 0;
 let result = 'Click on a villian to hit them with glitter...';
@@ -66,7 +69,7 @@ const zombie = {
 };
 
 const fairyAttacks = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5];
-const villianAttacks = [0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3];
+const villianAttacks = [0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3];
 const villianTypes = [
     bat,
     bat,
@@ -101,6 +104,18 @@ addVillianForm.addEventListener('submit', (e) => {
     displayResult();
 
     addVillianForm.reset();
+});
+
+removeButton.addEventListener('click', () => {
+    const alive = [];
+
+    for (const villian of villians) {
+        if (villian.hp > 0) {
+            alive.push(villian);
+        }
+    }
+    villians = alive;
+    displayVillians();
 });
 
 /* Display Functions */
@@ -168,6 +183,4 @@ function displayVillians() {
 // (don't forget to call any display functions you want to run on page load!)
 
 displayFairy();
-displayResult();
-displayScoreboard();
 displayVillians();
