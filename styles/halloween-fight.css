@@ -1,0 +1,86 @@
+#scoreboard {
+    height: 50px;
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#results-display {
+    height: 50px;
+    background: rgb(173, 15, 173);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.fairy-card {
+    background: white;
+    margin-top: 75px;
+    width: 300px;
+    height: 420px;
+    padding: 15px 20px;
+}
+
+.fairy-card img {
+    width: 100%;
+}
+
+.fairy-card p {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.villian-section {
+    justify-self: center;
+    padding-top: 20px;
+
+    display: grid;
+    align-items: start;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+}
+
+#villian-list {
+    display: grid;
+    align-content: center;
+    gap: 10px;
+}
+
+.villian {
+    width: 250px;
+    height: 80px;
+    padding: 0 10px;
+
+    display: grid;
+    grid-template-columns: 60px 60px 1fr;
+    align-items: center;
+    justify-items: center;
+
+    display: pointer;
+}
+
+.card {
+    border: 3px solid black;
+}
+
+.villian .stat {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.villian img {
+    height: 50px;
+}
+
+.villian .name {
+    font-size: 1.6em;
+    font-weight: bold;
+    text-align: center;
+}
